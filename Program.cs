@@ -4,44 +4,79 @@ namespace Lab2Version2Calculate_AreaWidthVolume
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             string input = "Y";
-            decimal length;
-            decimal height;
-            decimal width;
+            decimal length = 0;
+            decimal height = 0;
+            decimal width = 0;
 
 
 
-            while (input != "N")
+            while (input.ToLower() != "n")
 
             {
 
+                bool widthIsValid = false;
+                bool lengthIsValid = false;
+                bool heightIsValid = false;
 
-                Console.WriteLine("Enter the width");
-                var widthAsString = Console.ReadLine();
+                // width
+                while (!widthIsValid)
+                {
+                    Console.WriteLine("Enter the width");
+                    var widthAsString = Console.ReadLine();
 
-                if (decimal.TryParse(widthAsString, out width))
-                    Console.WriteLine($"The width is: {width}");
-                else
-                    Console.WriteLine("This is not a number!");
+                    if (decimal.TryParse(widthAsString, out width))
+                    {
+                        Console.WriteLine($"The width is: {width}");
+                        widthIsValid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("This is not a number!");
+                        widthIsValid = false;
+                    }
+                }
 
 
-                Console.WriteLine("Input the length");
-                var lengthAsString = Console.ReadLine();
+                // length
+                while (!lengthIsValid)
+                {
+                    Console.WriteLine("Input the length");
+                    var lengthAsString = Console.ReadLine();
 
-                if (decimal.TryParse(lengthAsString, out length))
-                    Console.WriteLine($"The length is: {length}");
-                else
-                    Console.WriteLine("This is not a number!");
+                    if (decimal.TryParse(lengthAsString, out length))
+                    {
+                        Console.WriteLine($"The length is: {length}");
+                        lengthIsValid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("This is not a number!");
+                        lengthIsValid = false;
+                    }
+                }
 
-                Console.WriteLine("Input the height");
-                var heightAsString = Console.ReadLine();
 
-                if (decimal.TryParse(heightAsString, out height))
-                    Console.WriteLine($"Your age is: {height}");
-                else
-                    Console.WriteLine("This is not a number!");
+                // height
+                while (!heightIsValid)
+                {
+                    Console.WriteLine("Input the height");
+                    var heightAsString = Console.ReadLine();
+
+                    if (decimal.TryParse(heightAsString, out height))
+                    {
+                        Console.WriteLine($"Your height is: {height}");
+                        heightIsValid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("This is not a number!");
+                        heightIsValid = false;
+                    }
+                }
 
 
                 decimal area = width * length;
